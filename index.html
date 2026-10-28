@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
   <head>
 
@@ -24,23 +24,107 @@
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
     <style>
-.badge-nouveau {
-  background: #ff4757;   /* red badge */
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 3px 7px;
-  border-radius: 12px;
-  margin-left: 8px;
-  animation: pulse 1.5s infinite;
-  display: inline-block;
+.platform-card {
+  max-width: 760px;
+  overflow: hidden;
+  border: 4px solid #c92338;
+  border-radius: 27px;
+  background: #fff;
+  box-shadow: 0 24px 55px rgba(31, 8, 51, .3);
+  color: #292342;
+  text-align: left;
 }
-
-/* Simple glowing animation */
-@keyframes pulse {
-  0%   { transform: scale(1); opacity: 1; }
-  50%  { transform: scale(1.1); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
+.platform-card-alert {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 28px;
+  background: linear-gradient(110deg, #ae1028, #e53d4d);
+  color: #fff;
+}
+.platform-card-alert-icon {
+  display: grid;
+  flex: 0 0 45px;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 14px;
+  background: rgba(255,255,255,.15);
+  font-size: 20px;
+}
+.platform-card-alert-text { display: grid; gap: 2px; }
+.platform-card-alert-text strong { font-size: 12px; font-weight: 800; letter-spacing: .1em; }
+.platform-card-alert-text span { font-size: clamp(17px, 2.5vw, 22px); font-weight: 800; line-height: 1.25; }
+.platform-card-body { display: grid; gap: 20px; padding: 26px 28px 29px; }
+.platform-card-heading { display: flex; align-items: center; gap: 16px; }
+.platform-card-icon {
+  display: grid;
+  flex: 0 0 58px;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: #6c55c5;
+  color: #fff;
+  font-size: 25px;
+  box-shadow: 0 8px 17px rgba(108, 85, 197, .25);
+}
+.platform-card-title { display: grid; gap: 4px; }
+.platform-card .platform-kicker {
+  color: #b61a31;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.platform-card-title strong { font-size: clamp(25px, 3vw, 34px); line-height: 1.15; }
+.platform-card .platform-description { color: #5c5872; font-size: 16px; line-height: 1.55; }
+.platform-benefits { display: flex; flex-wrap: wrap; gap: 8px; }
+.platform-benefits span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid #e2daf9;
+  border-radius: 999px;
+  background: #fff;
+  color: #493982;
+  font-size: 13px;
+  font-weight: 600;
+}
+.platform-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 61px;
+  padding: 11px 13px 11px 21px;
+  border-radius: 15px;
+  background: #ffd75e;
+  color: #30254b;
+  font-size: 17px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 0 #d0a840;
+  transition: background-color .2s, transform .2s, box-shadow .2s;
+}
+.platform-card a i { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 11px; background: #30254b; color: #fff; }
+.platform-card a:hover, .platform-card a:focus-visible { background: #ffe592; color: #30254b; transform: translateY(3px); box-shadow: 0 3px 0 #d0a840; }
+.platform-card a:focus-visible { outline: 3px solid #352468; outline-offset: 3px; }
+.platform-card-note { color: #6c6287; font-size: 12px; font-weight: 600; }
+.main-banner .item.item-1 { padding: 62px 70px; }
+@media (max-width: 767px) {
+  .main-banner .item.item-1 { padding: 32px 18px 55px !important; }
+  .platform-card { margin-inline: auto; border-width: 3px; border-radius: 22px; }
+  .platform-card-alert { gap: 11px; padding: 16px 18px; }
+  .platform-card-alert-icon { flex-basis: 38px; width: 38px; height: 38px; font-size: 17px; }
+  .platform-card-body { gap: 17px; padding: 20px 18px 24px; }
+  .platform-card-heading { align-items: flex-start; gap: 12px; }
+  .platform-card-icon { flex-basis: 48px; width: 48px; height: 48px; font-size: 21px; }
+  .platform-card-title strong { font-size: 24px; }
+  .platform-card a { font-size: 15px; }
 }
 
 
@@ -151,7 +235,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <h1>ENIGDOCS</h1><span class="badge-nouveau">Nouveau</span> <span class="badge-nouveau">GCR2</span>
+                        <h1>ENIGDOCS</h1>
                     </a>
 
 
@@ -171,6 +255,7 @@
                       <li class="scroll-to-section"><a href="#top" class="active">Accueil</a></li>
                       <li class="scroll-to-section"><a href="#courses">Spécialités</a></li>
                       <li class="scroll-to-section"><a href="#team">contacez-Nous</a></li>
+                      <li><a href="https://enigdocs.pages.dev/">Nouvelle plateforme</a></li>
                   </ul>  
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -190,30 +275,30 @@
           <div class="owl-carousel owl-banner">
             <div class="item item-1">
               <div class="header-text">
-                <span class="category">Bienvenue</span>
-                <h2>
-                  Bienvenue sur ENIGDOCS, Votre Espace Étudiant
-                </h2>
-<!--
-                <div style="background-color: #f8d7da; color: #721c24; border: 2px solid #f5c6cb; 
-                            padding: 25px; margin-top: 20px; border-radius: 12px; font-weight: bold; 
-                            font-size: 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">  
-                  <i class="fas fa-bell fa-shake fa-2x" style="color:#721c24;"></i>
-                  <span style="font-size:22px; text-decoration: underline;"> ALERTE IMPORTANTE </span>
-                  <i class="fas fa-exclamation-triangle fa-bounce fa-2x" style="color:#721c24;"></i> 
-                  <br><br>
-                  Ce site sera <u>supprimé</u> à cause du boycott du serveur <u><strong>Render</strong></u>.<br><br>
-                  Veuillez <u>télécharger vos documents</u> pour ce mois en attendant que je refasse l’hébergement DNS sur un autre serveur sans boycott.
-                </div>
--->
-
-
-                
-
-                <p>Ce site est conçu pour les étudiants de l'École Nationale d'Ingénieurs de Gabès, offrant des supports de cours, travaux dirigés, devoirs, et plus encore, organisés par filière et année pour enrichir votre parcours académique.</p>
-                <div class="buttons">
-                  
-                  <div class="icon-button">
+                <div class="platform-card">
+                  <div class="platform-card-alert">
+                    <span class="platform-card-alert-icon" aria-hidden="true"><i class="fa-solid fa-bell"></i></span>
+                    <div class="platform-card-alert-text">
+                      <strong>INFORMATION IMPORTANTE</strong>
+                      <span>ENIGDocs a un nouveau site !</span>
+                    </div>
+                  </div>
+                  <div class="platform-card-body">
+                    <div class="platform-card-heading">
+                      <span class="platform-card-icon" aria-hidden="true"><i class="fa-solid fa-book-open"></i></span>
+                      <div class="platform-card-title">
+                        <span class="platform-kicker">ENIGDocs pour tous les étudiants</span>
+                        <strong>Vos cours ont une nouvelle adresse.</strong>
+                      </div>
+                    </div>
+                    <span class="platform-description">Retrouvez les cours, TD et examens des cinq filières sur une plateforme plus simple à utiliser, même sur téléphone.</span>
+                    <div class="platform-benefits" aria-label="Fonctionnalités de la nouvelle plateforme">
+                      <span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Recherche rapide</span>
+                      <span><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> Lecture sur téléphone</span>
+                      <span><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i> Partage de documents</span>
+                    </div>
+                    <a href="https://enigdocs.pages.dev/" aria-label="Accéder à la nouvelle plateforme ENIGDocs">Découvrir la nouvelle plateforme <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <span class="platform-card-note">Accès gratuit · Aucun compte nécessaire pour consulter les fichiers</span>
                   </div>
                 </div>
               </div>
@@ -352,9 +437,7 @@
             <div class="thumb">
               <a href="gcr/gcr2/gcr2.html"><img src="assets/images/gcr-2.jpg" alt="" loading="lazy"></a>
               <span class="price">
-                <h6>GCR<em>2</em> 
-                  <span class="badge-nouveau">Nouveau</span>
-                </h6>
+                <h6>GCR<em>2</em></h6>
               </span>
             </div>
             <div class="down-content">
